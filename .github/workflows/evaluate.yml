@@ -24,11 +24,23 @@ jobs:
         run: pip install --no-cache-dir -r requirements.txt
 
       - name: Run evaluation pipeline
-        run: python evaluate.py --source data/source.txt --translation data/translation.txt --output reports/report.json --lang-pair en-es
+        id: evaluate
+        run: |
+          python evaluate.py \
+            --source data/source.txt \
+            --translation data/translation.txt \
+            --output reports/report.json \
+            --lang-pair en-es
+        continue-on-error: true
 
       - name: Upload evaluation report
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: evaluation-report
           path: reports/report.json
+
+      - name: Enforce pipeline decision
+        if: steps.evaluate.outcome == 'failure'
+        run: |
+          echo "FINAL DECISION: FAIL — translation quality thresholds not met."
+          exit 1
