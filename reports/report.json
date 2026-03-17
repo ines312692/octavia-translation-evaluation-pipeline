@@ -1,0 +1,95 @@
+{
+  "pipeline": "Octavia Translation Evaluation Pipeline",
+  "generated_at": "2026-03-17T13:06:19.034746+00:00",
+  "language_pair": "en-es",
+  "summary": {
+    "total_segments": 10,
+    "average_length_ratio": 1.2485,
+    "violation_count": 8,
+    "violation_percentage": 80.0,
+    "bleu_score": 0.8101,
+    "decision": "FAIL"
+  },
+  "thresholds": {
+    "max_average_length_ratio": 1.2,
+    "max_violation_percentage": 10.0,
+    "min_bleu_score": 25.0
+  },
+  "checks": {
+    "avg_length_ratio_ok": false,
+    "violation_rate_ok": false,
+    "bleu_ok": false
+  },
+  "segments": [
+    {
+      "index": 1,
+      "source": "Artificial intelligence is transforming education worldwide.",
+      "translation": "La inteligencia artificial está transformando la educación en todo el mundo.",
+      "length_ratio": 1.2667,
+      "exceeds_threshold": true
+    },
+    {
+      "index": 2,
+      "source": "Students benefit from personalized learning experiences.",
+      "translation": "Los estudiantes se benefician de experiencias de aprendizaje personalizadas.",
+      "length_ratio": 1.3571,
+      "exceeds_threshold": true
+    },
+    {
+      "index": 3,
+      "source": "This system automatically translates video lectures.",
+      "translation": "Este sistema traduce automáticamente conferencias en video.",
+      "length_ratio": 1.1346,
+      "exceeds_threshold": false
+    },
+    {
+      "index": 4,
+      "source": "Maintaining natural pacing is extremely important.",
+      "translation": "Mantener un ritmo natural es muy importante.",
+      "length_ratio": 0.88,
+      "exceeds_threshold": false
+    },
+    {
+      "index": 5,
+      "source": "Quality evaluation prevents performance degradation.",
+      "translation": "La evaluación de calidad previene la degradación del rendimiento.",
+      "length_ratio": 1.25,
+      "exceeds_threshold": true
+    },
+    {
+      "index": 6,
+      "source": "Translation systems must preserve meaning accurately.",
+      "translation": "Los sistemas de traducción deben preservar el significado con precisión.",
+      "length_ratio": 1.3585,
+      "exceeds_threshold": true
+    },
+    {
+      "index": 7,
+      "source": "Overly long translations can break synchronization.",
+      "translation": "Las traducciones demasiado largas pueden romper la sincronización.",
+      "length_ratio": 1.2941,
+      "exceeds_threshold": true
+    },
+    {
+      "index": 8,
+      "source": "Automation improves scalability and consistency.",
+      "translation": "La automatización mejora la escalabilidad y la coherencia.",
+      "length_ratio": 1.2083,
+      "exceeds_threshold": true
+    },
+    {
+      "index": 9,
+      "source": "Engineers need reliable evaluation metrics.",
+      "translation": "Los ingenieros necesitan métricas de evaluación confiables.",
+      "length_ratio": 1.3721,
+      "exceeds_threshold": true
+    },
+    {
+      "index": 10,
+      "source": "Continuous testing ensures long-term product stability.",
+      "translation": "Las pruebas continuas garantizan la estabilidad del producto a largo plazo.",
+      "length_ratio": 1.3636,
+      "exceeds_threshold": true
+    }
+  ]
+}

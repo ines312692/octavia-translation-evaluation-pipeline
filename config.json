@@ -1,0 +1,5 @@
+{
+  "max_average_length_ratio": 1.2,
+  "max_violation_percentage": 10.0,
+  "min_bleu_score": 25.0
+}
