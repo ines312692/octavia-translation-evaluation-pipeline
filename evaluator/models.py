@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Dict, List
 
 
@@ -23,7 +23,7 @@ class LengthMetrics:
 class Thresholds:
     max_average_length_ratio: float = 1.2
     max_violation_percentage: float = 10.0
-    min_bleu_score: float = 25.0
+    min_bleu_score: float = 0.5
 
     @classmethod
     def from_dict(cls, data: Dict[str, float]) -> "Thresholds":

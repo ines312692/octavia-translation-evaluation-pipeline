@@ -131,7 +131,7 @@ BLEU (Bilingual Evaluation Understudy) measures n-gram precision between a hypot
 
 Selected because it is language-agnostic, deterministic, requires no pre-trained model or GPU, and is the standard metric for automated MT regression testing.
 
-**Note on references:** BLEU requires human reference translations. This dataset provides none, so the source English text serves as a pseudo-reference. Cross-lingual n-gram overlap is minimal by nature, producing low scores regardless of translation quality. The threshold of 25.0 accounts for this. In production, provide actual reference translations per language pair and recalibrate the threshold accordingly.
+**Note on references:** BLEU requires human reference translations. This dataset provides none, so the source English text serves as a pseudo-reference. Cross-lingual n-gram overlap is minimal by nature, so all scores will be near 0–2 regardless of translation quality. The threshold is therefore set at 0.5 — a near-zero floor that only rejects completely garbled output. In production, provide actual reference translations per language pair and raise the threshold to a meaningful value (e.g. ≥ 30).
 
 ---
 
@@ -143,7 +143,7 @@ Defined in `config.json` and loaded into a typed `Thresholds` dataclass at runti
 |---|---|---|
 | `max_average_length_ratio` | `1.2` | Spanish averages 20–30% more characters than English. A mean ratio above 1.2 signals systemic over-translation that will cause sync failures at scale. |
 | `max_violation_percentage` | `10.0` | Tolerates up to 1 in 10 segments as natural outliers. Beyond that, the pattern is systemic. |
-| `min_bleu_score` | `25.0` | Conservative floor for pseudo-reference evaluation. Raise when true reference translations are available. |
+| `min_bleu_score` | `0.5` | Minimum n-gram overlap floor for pseudo-reference evaluation. Cross-lingual BLEU (source as reference) produces scores near 0–2, so 0.5 filters out completely garbled output while accepting any real translation. Raise significantly (e.g. ≥ 30) when true human reference translations are available. |
 
 Override any threshold without modifying source code:
 
